@@ -1,0 +1,6 @@
+
+esquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(²Ú±Ž
+usquid:UselessImportCheck"JRemove this unused import 'com.google.android.material.snackbar.Snackbar'.(ë„ƒŠ8ß“ÎñŠ.
+Rsquid:UselessImportCheck".Remove this unused import 'android.view.Menu'.(£¯Ò…
+Vsquid:UselessImportCheck"2Remove this unused import 'android.view.MenuItem'.(Ð¬Ó‘
+’squid:UselessImportCheck"bRemove this unused import 'com.google.android.material.floatingactionbutton.FloatingActionButton'.(ôˆêãÿÿÿÿÿ8ÐäÍñŠ.

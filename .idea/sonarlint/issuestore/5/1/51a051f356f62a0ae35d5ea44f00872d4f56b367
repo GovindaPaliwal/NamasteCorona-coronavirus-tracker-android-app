@@ -1,0 +1,8 @@
+
+‰"squid:ClassVariableVisibilityCheck-"TMake txtCount a static final constant or non-public and provide accessors if needed.(ññÍè8š‹ıïŠ.
+ˆ"squid:ClassVariableVisibilityCheck-"SMake txtName a static final constant or non-public and provide accessors if needed.(ññÍè8š‹ıïŠ.
+…squid:S1488"bImmediately return this expression instead of assigning it to the temporary variable "viewHolder".(µ·¼‘øÿÿÿÿ8š‹ıïŠ.
+Dsquid:S1659-"&Declare "txtCount" on a separate line.(ññÍè8š‹ıïŠ.
+5squid:S2176+"Rename this class.(Â×Öúÿÿÿÿ8š‹ıïŠ.
+Csquid:S1659-"%Declare "txtTime" on a separate line.(ññÍè8š‹ıïŠ.
+ˆ"squid:ClassVariableVisibilityCheck-"SMake txtTime a static final constant or non-public and provide accessors if needed.(ññÍè8š‹ıïŠ.

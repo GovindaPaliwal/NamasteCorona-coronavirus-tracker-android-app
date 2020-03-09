@@ -1,0 +1,5 @@
+
+isquid:S00117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çª˜ª
+msquid:S001165"PRename this field "_long" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëýå˜ùÿÿÿÿ
+bsquid:CommentedOutCodeLineM"<This block of commented-out lines of code should be removed.(¹»¹Œ
+Xsquid:S2094I"BRemove this empty class, write its code or make it an "interface".(ý·”s

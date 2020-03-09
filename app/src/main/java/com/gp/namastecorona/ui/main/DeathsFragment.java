@@ -2,9 +2,12 @@ package com.gp.namastecorona.ui.main;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,9 @@ import com.gp.namastecorona.api.APIClient;
 import com.gp.namastecorona.api.ApiInterface;
 import com.gp.namastecorona.model.ConfirmModel;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,6 +43,7 @@ public class DeathsFragment extends Fragment {
     private PageViewModel pageViewModel;
     private RecyclerView recyclerView;
     private TextView txtTotal;
+    private EditText searchEditText;
     ProgressDialog progressBar;
     public static DeathsFragment newInstance(int index) {
         DeathsFragment fragment = new DeathsFragment();
@@ -64,6 +71,7 @@ public class DeathsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_common, container, false);
         txtTotal = root.findViewById(R.id.txt_total);
         recyclerView = (RecyclerView) root.findViewById(R.id.recycler_view);
+        searchEditText=root.findViewById(R.id.searchView);
         pageViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -111,10 +119,33 @@ public class DeathsFragment extends Fragment {
             Toast.makeText(getActivity(), "No Data Found", Toast.LENGTH_LONG);
         } else {
             txtTotal.setText("Total : "+confirmModel.getLatest());
-            CommonListAdapter adapter = new CommonListAdapter(confirmModel.getLocations());
+            Collections.sort(confirmModel.getLocations(), new Comparator<ConfirmModel.Location>() {
+                @Override
+                public int compare(ConfirmModel.Location lhs, ConfirmModel.Location rhs) {
+                    // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                    return lhs.getLatest() > rhs.getLatest() ? -1 : (lhs.getLatest() < rhs.getLatest() ) ? 1 : 0;
+                }
+            });
+            final CommonListAdapter adapter = new CommonListAdapter(confirmModel.getLocations());
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
+            searchEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    adapter.getFilter().filter(s);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
         }
     }
 }

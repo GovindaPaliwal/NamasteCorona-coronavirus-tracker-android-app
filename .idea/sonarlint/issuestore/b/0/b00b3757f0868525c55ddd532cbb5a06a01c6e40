@@ -1,0 +1,9 @@
+
+csquid:S00112S"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+squid:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ôûÿŸøÿÿÿÿ
+Csquid:S4423C",Change this code to use a stronger protocol.(ÿ¶¶Ó
+squid:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ı¬Â½úÿÿÿÿ
+Qsquid:S1118":Add a private constructor to hide the implicit public one.(ÍÀÅ
+Gsquid:S44244"+Change this method so it throws exceptions.(ôûÿŸøÿÿÿÿ
+Gsquid:S44248"+Change this method so it throws exceptions.(ı¬Â½úÿÿÿÿ
+Isquid:S3510N"2Do not unconditionally return true in this method.(§¼Éç
