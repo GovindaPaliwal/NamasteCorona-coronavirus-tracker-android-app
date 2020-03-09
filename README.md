@@ -8,11 +8,9 @@ The data comes from the [2019 Novel Coronavirus (nCoV) Data Repository, provided
 by JHU CCSE](https://github.com/CSSEGISandData/2019-nCoV) . It is
 programmatically retrieved using API (Not store anywhere).
 
-## Prerequisites
-
 ## Set Endpoints
 
-You need to setup your server part which is return in python by ExpDev07 
+You need to setup your server part which is written in python by ExpDev07 
 For api you can check [https://github.com/ExpDev07/coronavirus-tracker-api](https://github.com/ExpDev07/coronavirus-tracker-api) repository which is nicely develop and maintain by ExpDev07
 And then set end point in APIClient.java file
 
