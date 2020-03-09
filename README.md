@@ -16,11 +16,14 @@ You need to setup your server part which is return in python by ExpDev07
 For api you can check [https://github.com/ExpDev07/coronavirus-tracker-api](https://github.com/ExpDev07/coronavirus-tracker-api) repository which is nicely develop and maintain by ExpDev07
 And then set end point in APIClient.java file
 
-## Upcoming Feature ✨
-1. Country wise searching
-2. Day by Day History 
-3. View tracking using Map
-4. Improve How To Stay Safe
+
+For Map : You can add your api key for google map. used https://github.com/sharewire/google-maps-clustering lib for Google Maps Clustering
+
+## Feature ✨
+- [x] Country wise searching
+- [x] View tracking using Map
+- [ ] Day by Day History 
+- [x] Improve How To Stay Safe
 
 ## Contributors
 
