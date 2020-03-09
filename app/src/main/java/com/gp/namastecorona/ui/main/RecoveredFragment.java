@@ -1,6 +1,7 @@
 package com.gp.namastecorona.ui.main;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gp.namastecorona.MainActivity;
+import com.gp.namastecorona.MapsActivity;
 import com.gp.namastecorona.R;
 import com.gp.namastecorona.adapter.CommonListAdapter;
 import com.gp.namastecorona.api.APIClient;
@@ -32,6 +36,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -44,6 +49,7 @@ public class RecoveredFragment extends Fragment {
     ProgressDialog progressBar;
     private EditText searchEditText;
     private TextView txtTotal;
+    private ImageView imgMap;
 
     public static RecoveredFragment newInstance(int index) {
         RecoveredFragment fragment = new RecoveredFragment();
@@ -79,6 +85,7 @@ public class RecoveredFragment extends Fragment {
                 loadRecoverData();
             }
         });
+        imgMap = root.findViewById(R.id.img_map);
         return root;
     }
 
@@ -111,18 +118,20 @@ public class RecoveredFragment extends Fragment {
         });
     }
 
-    private void setAdapter(ConfirmModel confirmModel) {
+    private void setAdapter(final ConfirmModel confirmModel) {
         if (confirmModel.getLocations().size() == 0) {
             Toast.makeText(getActivity(), "No Data Found", Toast.LENGTH_LONG);
         } else {
             txtTotal.setText("Total : " + confirmModel.getLatest());
+
             Collections.sort(confirmModel.getLocations(), new Comparator<ConfirmModel.Location>() {
                 @Override
                 public int compare(ConfirmModel.Location lhs, ConfirmModel.Location rhs) {
                     // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                    return lhs.getLatest() > rhs.getLatest() ? -1 : (lhs.getLatest() < rhs.getLatest() ) ? 1 : 0;
+                    return lhs.getLatest() > rhs.getLatest() ? -1 : (lhs.getLatest() < rhs.getLatest()) ? 1 : 0;
                 }
             });
+
             final CommonListAdapter adapter = new CommonListAdapter(confirmModel.getLocations());
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter);
@@ -141,6 +150,16 @@ public class RecoveredFragment extends Fragment {
                 @Override
                 public void afterTextChanged(Editable s) {
 
+                }
+            });
+
+            imgMap.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), MapsActivity.class);
+                    intent.putExtra("list", confirmModel);
+                    intent.putExtra("type", "Recovered");
+                    startActivity(intent);
                 }
             });
         }

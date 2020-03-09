@@ -67,14 +67,10 @@ public class CommonListAdapter extends RecyclerView.Adapter<CommonListAdapter.Vi
                 } else {
                     List<ConfirmModel.Location> filteredList = new ArrayList<>();
                     for (ConfirmModel.Location row : listdata) {
-
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (row.getCountry().toLowerCase().contains(charString.toLowerCase())){// || row.getProvince().contains(charSequence)) {
+                        if (row.getCountry().toLowerCase().contains(charString.toLowerCase()) || row.getProvince().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);
                         }
                     }
-
                     listFiltered = filteredList;
                 }
 

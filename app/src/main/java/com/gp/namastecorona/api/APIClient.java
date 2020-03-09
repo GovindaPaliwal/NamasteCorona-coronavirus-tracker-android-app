@@ -18,7 +18,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class APIClient {
 
-    public static final String BASE_URL = "https://coronavirus-tracker-api.herokuapp.com/";// https://YOUR_END_POINT/";
+    public static final String BASE_URL = "https://YOUR_END_POINT/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

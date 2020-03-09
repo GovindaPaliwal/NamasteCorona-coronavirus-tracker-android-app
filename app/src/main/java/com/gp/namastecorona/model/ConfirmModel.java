@@ -1,11 +1,14 @@
 package com.gp.namastecorona.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class ConfirmModel {
+public class ConfirmModel implements Parcelable {
 
 
     @SerializedName("latest")
@@ -13,10 +16,47 @@ public class ConfirmModel {
     private Integer latest;
     @SerializedName("locations")
     @Expose
-    private List<Location> locations = null;
+    private List<Location> locations ;
     @SerializedName("source")
     @Expose
     private String source;
+
+    public ConfirmModel() {
+    }
+
+    protected ConfirmModel(Parcel in) {
+        if (in.readByte() == 0) {
+            latest = null;
+        } else {
+            latest = in.readInt();
+        }
+        locations = in.createTypedArrayList(Location.CREATOR);
+        source = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (latest == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(latest);
+        }
+        dest.writeTypedList(locations);
+        dest.writeString(source);
+    }
+
+    public static final Creator<ConfirmModel> CREATOR = new Creator<ConfirmModel>() {
+        @Override
+        public ConfirmModel createFromParcel(Parcel in) {
+            return new ConfirmModel(in);
+        }
+
+        @Override
+        public ConfirmModel[] newArray(int size) {
+            return new ConfirmModel[size];
+        }
+    };
 
     public Integer getLatest() {
         return latest;
@@ -42,8 +82,13 @@ public class ConfirmModel {
         this.source = source;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-    public class Coordinates {
+
+    public static class Coordinates implements Parcelable {
 
         @SerializedName("lat")
         @Expose
@@ -51,6 +96,34 @@ public class ConfirmModel {
         @SerializedName("long")
         @Expose
         private String _long;
+
+        protected Coordinates(Parcel in) {
+            lat = in.readString();
+            _long = in.readString();
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(lat);
+            dest.writeString(_long);
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        public static final Creator<Coordinates> CREATOR = new Creator<Coordinates>() {
+            @Override
+            public Coordinates createFromParcel(Parcel in) {
+                return new Coordinates(in);
+            }
+
+            @Override
+            public Coordinates[] newArray(int size) {
+                return new Coordinates[size];
+            }
+        };
 
         public String getLat() {
             return lat;
@@ -67,7 +140,6 @@ public class ConfirmModel {
         public void setLong(String _long) {
             this._long = _long;
         }
-
     }
 
     public class History {
@@ -86,7 +158,7 @@ public class ConfirmModel {
 
     }
 
-    public class Location {
+    public static class Location implements Parcelable {
 
         @SerializedName("coordinates")
         @Expose
@@ -103,6 +175,43 @@ public class ConfirmModel {
         @SerializedName("province")
         @Expose
         private String province;
+
+
+        protected Location(Parcel in) {
+            coordinates = in.readParcelable(Coordinates.class.getClassLoader());
+            country = in.readString();
+            if (in.readByte() == 0) {
+                latest = null;
+            } else {
+                latest = in.readInt();
+            }
+            province = in.readString();
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeParcelable(coordinates, flags);
+            dest.writeString(country);
+            if (latest == null) {
+                dest.writeByte((byte) 0);
+            } else {
+                dest.writeByte((byte) 1);
+                dest.writeInt(latest);
+            }
+            dest.writeString(province);
+        }
+
+        public static final Creator<Location> CREATOR = new Creator<Location>() {
+            @Override
+            public Location createFromParcel(Parcel in) {
+                return new Location(in);
+            }
+
+            @Override
+            public Location[] newArray(int size) {
+                return new Location[size];
+            }
+        };
 
         public Coordinates getCoordinates() {
             return coordinates;
@@ -144,5 +253,9 @@ public class ConfirmModel {
             this.province = province;
         }
 
+        @Override
+        public int describeContents() {
+            return 0;
+        }
     }
 }

@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.gp.namastecorona.model.ConfirmModel;
 import com.gp.namastecorona.ui.main.SectionsPagerAdapter;
 import com.gp.namastecorona.ui.main.WebActivity;
 
