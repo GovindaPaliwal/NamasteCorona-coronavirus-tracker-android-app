@@ -5,10 +5,10 @@ You can see country wise and province wise data with searching feature.
 You can see all location point and data count on Map, and
 Rendered information statistics with the help of charts.
 
-![image](https://.png)
-![image](https://.png)
-![image](https://.png)
-![image](https://.png)
+![image](https://github.com/GovindaPaliwal/NamasteCorona-coronavirus-tracker-android-app/blob/master/screens/first.png)
+![image](https://github.com/GovindaPaliwal/NamasteCorona-coronavirus-tracker-android-app/blob/master/screens/second.png)
+![image](https://github.com/GovindaPaliwal/NamasteCorona-coronavirus-tracker-android-app/blob/master/screens/three.png)
+![image](https://github.com/GovindaPaliwal/NamasteCorona-coronavirus-tracker-android-app/blob/master/screens/four.png)
 
 ## Data
 
