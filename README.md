@@ -1,6 +1,14 @@
 # NamasteCorona - coronavirus-tracker android app
 
-> This is tracker and help information android application for the new coronavirus (2019-nCoV). It's uses basic API for tracking. For api you can check https://github.com/ExpDev07/coronavirus-tracker-api repository which is nicely develop and maintain by ExpDev07 (Specially thanks to contributor for this). 
+ This is tracker and help information android application for the new coronavirus (2019-nCoV). It's uses basic API for tracking. For api you can check https://github.com/ExpDev07/coronavirus-tracker-api repository which is nicely develop and maintain by ExpDev07 (Specially thanks to contributor for this).
+You can see country wise and province wise data with searching feature.
+You can see all location point and data count on Map, and
+Rendered information statistics with the help of charts.
+
+![image](https://.png)
+![image](https://.png)
+![image](https://.png)
+![image](https://.png)
 
 ## Data
 
@@ -10,7 +18,7 @@ programmatically retrieved using API (Not store anywhere).
 
 ## Set Endpoints
 
-You need to setup your server part which is written in python by ExpDev07 
+You need to setup your server part which is written in python by ExpDev07
 For api you can check [https://github.com/ExpDev07/coronavirus-tracker-api](https://github.com/ExpDev07/coronavirus-tracker-api) repository which is nicely develop and maintain by ExpDev07
 And then set end point in APIClient.java file
 
@@ -20,8 +28,13 @@ For Map : You can add your api key for google map. used https://github.com/share
 ## Feature ✨
 - [x] Country wise searching
 - [x] View tracking using Map
-- [ ] Day by Day History 
 - [x] Improve How To Stay Safe
+- [x] Add Pia Chart for worldwide records
+- [ ] Day by Day History
+## Libraries
+* [API By ExpDev07](https://github.com/ExpDev07/coronavirus-tracker-api): For Server Api.
+* [Pia Charts](https://github.com/PhilJay/MPAndroidChart): A powerful 🚀 Android chart view / graph view library.
+* [Google Maps Clustering for Android](https://github.com/sharewire/google-maps-clustering)
 
 ## Contributors
 

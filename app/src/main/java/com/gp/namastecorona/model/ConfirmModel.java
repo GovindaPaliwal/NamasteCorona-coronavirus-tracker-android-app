@@ -21,6 +21,10 @@ public class ConfirmModel implements Parcelable {
     @Expose
     private String source;
 
+    @SerializedName("last_updated")
+    @Expose
+    private String last_updated;
+
     public ConfirmModel() {
     }
 
@@ -257,5 +261,13 @@ public class ConfirmModel implements Parcelable {
         public int describeContents() {
             return 0;
         }
+    }
+
+    public String getLast_updated() {
+        return last_updated;
+    }
+
+    public void setLast_updated(String last_updated) {
+        this.last_updated = last_updated;
     }
 }
