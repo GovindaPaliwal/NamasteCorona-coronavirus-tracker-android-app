@@ -1,4 +1,4 @@
-# NamasteCorona - coronavirus-tracker android app
+# NamasteCorona - Coronavirus Tracker Android App
 
  This is tracker and help information android application for the new coronavirus (2019-nCoV). It's uses basic API for tracking. For api you can check https://github.com/ExpDev07/coronavirus-tracker-api repository which is nicely develop and maintain by ExpDev07 (Specially thanks to contributor for this).
 You can see country wise and province wise data with searching feature.
