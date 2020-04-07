@@ -36,6 +36,7 @@ For Map : You can add your api key for google map. used https://github.com/share
 - [x] Improve How To Stay Safe
 - [x] Add Pia Chart for worldwide records
 - [ ] Day by Day History
+
 ## Libraries
 * [API By ExpDev07](https://github.com/ExpDev07/coronavirus-tracker-api): For Server Api.
 * [Pia Charts](https://github.com/PhilJay/MPAndroidChart): A powerful 🚀 Android chart view / graph view library.
